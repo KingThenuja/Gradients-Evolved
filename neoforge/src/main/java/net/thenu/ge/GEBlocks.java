@@ -8,14 +8,15 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.thenu.util.Items;
 
 import java.util.function.Supplier;
 
-public class Blocks {
+public class GEBlocks {
 
-    /*public static final DeferredBlock<Block>  = registerBlock("",
+    public static final DeferredBlock<Block> SLIGHTLY_MOSSY_COBBLESTONE = registerBlock("slightly_mossy_cobblestone",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));*/
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 
 

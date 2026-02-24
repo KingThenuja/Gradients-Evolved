@@ -6,7 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.thenu.ge.GE;
-import net.thenu.ge.GEBlocks;
+import net.thenu.ge.ModBlocks;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -20,11 +20,11 @@ public class GEBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
 
-                .add(GEBlocks.SLIGHTLY_MOSSY_COBBLESTONE.get());
+                .add(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
 
-                .add(GEBlocks.SLIGHTLY_MOSSY_COBBLESTONE.get());
+                .add(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE.get());
 
     }
 }

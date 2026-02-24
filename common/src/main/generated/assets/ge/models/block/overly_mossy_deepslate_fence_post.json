@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "ge:block/overly_mossy_deepslate"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ge:fully_covered_mossy_cobblestone"
+  },
+  "result": {
+    "count": 3,
+    "id": "ge:fully_covered_mossy_cobblestone_fence"
+  }
+}

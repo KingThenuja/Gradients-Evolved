@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "ge:block/slightly_mossy_cobblestone",
+    "side": "ge:block/slightly_mossy_cobblestone",
+    "top": "ge:block/slightly_mossy_cobblestone"
+  }
+}

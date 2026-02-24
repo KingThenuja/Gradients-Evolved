@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mossing_cobblestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ge:mossing_cobblestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ge:mossing_cobblestone_stairs_from_mossing_cobblestone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mossing_cobblestone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ge:mossing_cobblestone_stairs_from_mossing_cobblestone_stonecutting"
+    ]
+  }
+}

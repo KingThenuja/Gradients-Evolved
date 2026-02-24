@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "ge:block/fully_covered_mossy_deepslate"
+  }
+}

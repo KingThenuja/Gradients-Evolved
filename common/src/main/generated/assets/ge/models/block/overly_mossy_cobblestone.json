@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ge:block/overly_mossy_cobblestone"
+  }
+}

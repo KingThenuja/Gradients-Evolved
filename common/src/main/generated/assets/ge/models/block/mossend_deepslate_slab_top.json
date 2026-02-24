@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "ge:block/mossend_deepslate",
+    "side": "ge:block/mossend_deepslate",
+    "top": "ge:block/mossend_deepslate"
+  }
+}

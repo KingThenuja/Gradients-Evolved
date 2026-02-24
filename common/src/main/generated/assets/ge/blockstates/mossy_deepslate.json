@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ge:block/mossy_deepslate"
+    }
+  }
+}

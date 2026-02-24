@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "ge:block/slightly_mossy_deepslate",
+    "side": "ge:block/slightly_mossy_deepslate",
+    "top": "ge:block/slightly_mossy_deepslate"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "ge:block/slightly_mossy_deepslate"
+  }
+}

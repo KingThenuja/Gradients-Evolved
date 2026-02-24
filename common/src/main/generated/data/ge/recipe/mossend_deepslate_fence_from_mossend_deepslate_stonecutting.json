@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ge:mossend_deepslate"
+  },
+  "result": {
+    "count": 3,
+    "id": "ge:mossend_deepslate_fence"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fully_covered_mossy_cobblestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ge:fully_covered_mossy_cobblestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ge:fully_covered_mossy_cobblestone_button_from_fully_covered_mossy_cobblestone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fully_covered_mossy_cobblestone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ge:fully_covered_mossy_cobblestone_button_from_fully_covered_mossy_cobblestone_stonecutting"
+    ]
+  }
+}

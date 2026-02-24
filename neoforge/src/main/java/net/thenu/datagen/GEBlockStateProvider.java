@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.thenu.ge.GEBlocks;
+import net.thenu.ge.ModBlocks;
 import net.thenu.ge.GE;
 
 public class GEBlockStateProvider extends BlockStateProvider {
@@ -15,7 +15,8 @@ public class GEBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(GEBlocks.SLIGHTLY_MOSSY_COBBLESTONE);
+
+        blockWithItem(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

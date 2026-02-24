@@ -19,7 +19,7 @@
             "net.thenu.ge.GE"
         ],
         "fabric-datagen": [
-            "net.thenu.ge.GEDataGenerator"
+            "net.thenu.datagen.datagen"
         ]
     },
     "mixins": [

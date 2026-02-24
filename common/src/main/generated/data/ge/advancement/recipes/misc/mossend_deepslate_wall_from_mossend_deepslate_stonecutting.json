@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mossend_deepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ge:mossend_deepslate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ge:mossend_deepslate_wall_from_mossend_deepslate_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mossend_deepslate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ge:mossend_deepslate_wall_from_mossend_deepslate_stonecutting"
+    ]
+  }
+}

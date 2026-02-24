@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ge:block/fully_covered_mossy_deepslate"
+  }
+}

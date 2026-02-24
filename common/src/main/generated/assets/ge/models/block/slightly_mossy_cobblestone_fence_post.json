@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "ge:block/slightly_mossy_cobblestone"
+  }
+}

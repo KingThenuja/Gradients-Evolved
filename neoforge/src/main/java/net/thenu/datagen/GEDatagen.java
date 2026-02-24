@@ -29,5 +29,6 @@ public class GEDatagen {
         generator.addProvider(event.includeServer(), new GERecipeProvider(packOutput, lookupProvider));BlockTagsProvider blockTagsProvider = new GEBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeClient(), new GEBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new GELangProvider(packOutput, "ge", "en_us"));
     }
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ge:block/mossend_deepslate_slab"
+    },
+    "type=double": {
+      "model": "ge:block/mossend_deepslate"
+    },
+    "type=top": {
+      "model": "ge:block/mossend_deepslate_slab_top"
+    }
+  }
+}

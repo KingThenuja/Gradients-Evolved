@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ge:fully_covered_mossy_deepslate"
+  },
+  "result": {
+    "count": 1,
+    "id": "ge:fully_covered_mossy_deepslate_button"
+  }
+}

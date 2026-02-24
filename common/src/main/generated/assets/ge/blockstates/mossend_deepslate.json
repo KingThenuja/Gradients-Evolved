@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ge:block/mossend_deepslate"
+    }
+  }
+}

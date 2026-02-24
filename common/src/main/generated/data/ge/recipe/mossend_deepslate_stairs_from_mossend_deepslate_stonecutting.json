@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ge:mossend_deepslate"
+  },
+  "result": {
+    "count": 1,
+    "id": "ge:mossend_deepslate_stairs"
+  }
+}

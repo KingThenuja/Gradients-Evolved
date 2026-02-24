@@ -2,6 +2,7 @@ package net.thenu.ge;
 
 
 import net.minecraft.world.item.CreativeModeTabs;
+import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -35,16 +36,16 @@ public class GE {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        /*ModCreativeModeTabs.register(modEventBus);
+        CreativeTab.register(modEventBus);
 
         ModBlocks.register(modEventBus);
 
-        ModDataComponents.register(modEventBus);*/
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        //modContainer.registerConfig(ModConfig.Type.COMMON, Config.);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -54,8 +55,14 @@ public class GE {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            /*event.accept(ModBlocks.BISMUTH_BLOCK);
-            event.accept(ModBlocks.BISMUTH_ORE);*/
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_BUTTON);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_FENCE);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_WALL);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_DOOR);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_PRESSURE_PLATE);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_TRAPDOOR);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_STAIRS);
+            event.accept(ModBlocks.SLIGHTLY_MOSSY_COBBLESTONE_SLAB);
         }
     }
 

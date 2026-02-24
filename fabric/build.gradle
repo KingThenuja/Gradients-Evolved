@@ -4,12 +4,34 @@ plugins {
 }
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
-    }
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+}
+tasks.register("generateData", JavaExec) {
+    group = "fabric"
+    mainClass.set("net.thenu.ge.datagen.datagen")
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.named("generateData") {
+    doFirst {
+        // Path where generated data will be placed
+        systemProperty("fabric-api.datagen.output-dir", file("$buildDir/generated"))
+        // Your mod ID
+        systemProperty("fabric-api.datagen.modid", "ge")
+    }
+}
+sourceSets {
+    main {
+        resources {
+            srcDirs += project(':common').file('src/main/generated')
+        }
+    }
+}
+fabricApi {
+    configureDataGeneration {
+
+    }
 }
 loom {
     def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
@@ -31,6 +53,7 @@ loom {
             setConfigName('Fabric Server')
             ideConfigGenerated(true)
             runDir('runs/server')
+            property "fabric-api.datagen", "true"
         }
     }
 }

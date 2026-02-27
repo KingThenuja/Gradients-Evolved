@@ -6,51 +6,88 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.RegistryObject;
 
+import static net.thenu.utils.Registering.registerBlock;
+
 public class RegistrarBlockSet {
+
     public final RegistryObject<Block> block;
     public final RegistryObject<StairBlock> stairs;
     public final RegistryObject<SlabBlock> slab;
     public final RegistryObject<WallBlock> wall;
     public final RegistryObject<FenceBlock> fence;
     public final RegistryObject<FenceGateBlock> fenceGate;
-    public final RegistryObject<ButtonBlock> button;
-    public final RegistryObject<PressurePlateBlock> pressurePlate;
-    public final RegistryObject<DoorBlock> door;
+    /*public final RegistryObject<DoorBlock> door;
     public final RegistryObject<TrapDoorBlock> trapdoor;
+*/
+    public RegistrarBlockSet(
+            RegistryObject<Block> block,
+            RegistryObject<StairBlock> stairs,
+            RegistryObject<SlabBlock> slab,
+            RegistryObject<WallBlock> wall,
+            RegistryObject<FenceBlock> fence,
+            RegistryObject<FenceGateBlock> fenceGate
+           /* RegistryObject<DoorBlock> door,
+            RegistryObject<TrapDoorBlock> trapdoor*/ ){
 
-    public RegistrarBlockSet(String name,
-                    BlockBehaviour.Properties properties,
-                    BlockSetType setType,
-                    WoodType woodType) {
+        this.block = block;
+        this.stairs = stairs;
+        this.slab = slab;
+        this.wall = wall;
+        this.fence = fence;
+        this.fenceGate = fenceGate;
+        /*this.door = door;
+        this.trapdoor = trapdoor;*/
+    }
 
-        block = Registering.registerBlock(name,
-                () -> new Block(properties));
+    public static RegistrarBlockSet blockSet(String name, BlockBehaviour.Properties props) {
 
-        stairs = Registering.registerBlock(name + "_stairs",
-                () -> new StairBlock(block.get().defaultBlockState(), properties));
+        RegistryObject<Block> block =
+                registerBlock(name, () -> new Block(props));
 
-        slab = Registering.registerBlock(name + "_slab",
-                () -> new SlabBlock(properties));
+        RegistryObject<StairBlock> stairs =
+                registerBlock(name + "_stairs",
+                        () -> new StairBlock(
+                                block.get().defaultBlockState(),
+                                BlockBehaviour.Properties.ofFullCopy(block.get())
+                        ));
 
-        wall = Registering.registerBlock(name + "_wall",
-                () -> new WallBlock(properties));
+        RegistryObject<SlabBlock> slab =
+                registerBlock(name + "_slab",
+                        () -> new SlabBlock(
+                                BlockBehaviour.Properties.ofFullCopy(block.get())
+                        ));
 
-        fence = Registering.registerBlock(name + "_fence",
-                () -> new FenceBlock(properties));
+        RegistryObject<WallBlock> wall =
+                registerBlock(name + "_wall",
+                        () -> new WallBlock(
+                                BlockBehaviour.Properties.ofFullCopy(block.get())
+                        ));
 
-        fenceGate = Registering.registerBlock(name + "_fence_gate",
-                () -> new FenceGateBlock(woodType, properties));
+        RegistryObject<FenceBlock> fence =
+                registerBlock(name + "_fence",
+                        () -> new FenceBlock(
+                                BlockBehaviour.Properties.ofFullCopy(block.get())
+                        ));
 
-        button = Registering.registerBlock(name + "_button",
-                () -> new ButtonBlock(setType, 20, properties.noCollission()));
+        RegistryObject<FenceGateBlock> fenceGate =
+                registerBlock(name + "_fence_gate",
+                        () -> new FenceGateBlock(
+                                WoodType.OAK,
+                                BlockBehaviour.Properties.ofFullCopy(block.get())
+                        ));
 
-        pressurePlate = Registering.registerBlock(name + "_pressure_plate",
-                () -> new PressurePlateBlock(setType, properties));
+        /*RegistryObject<DoorBlock> door =
+            registerBlock(name + "_door",
+                () -> new DoorBlock(
+                    BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(block.get())
+                ));
 
-        door = Registering.registerBlock(name + "_door",
-                () -> new DoorBlock(setType, properties.noOcclusion()));
+         RegistryObject<TrapDoorBlock> trapdoor =
+            registerBlock(name + "_trapdoor",
+                () -> new TrapDoorBlock(
+                        BlockSetType.STONE, BlockBehaviour.Properties.ofFullCopy(block.get())
+                ));*/
 
-        trapdoor = Registering.registerBlock(name + "_trapdoor",
-                () -> new TrapDoorBlock(setType, properties.noOcclusion()));
+        return new RegistrarBlockSet(block, stairs, slab, wall, fence, fenceGate /*door, trapdoor*/);
     }
 }

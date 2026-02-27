@@ -1,30 +1,40 @@
 package net.thenu.ge.block;
 
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.thenu.utils.BlockBehaviorHelper;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.RegistryObject;
 import net.thenu.utils.RegistrarBlockSet;
 
-import static net.thenu.utils.Registering.BLOCKS;
+import static net.thenu.utils.Registering.*;
+import static net.thenu.utils.RegistrarBlockSet.blockSet;
 
-public class GEBlocks {public static void register(IEventBus eventBus) {
-    BLOCKS.register(eventBus);
+public class GEBlocks {
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+        ITEMS.register(eventBus);
+        TABS.register(eventBus);
+
+        eventBus.addListener(GEBlocks::addToCreativeTab);}
+
+    @SubscribeEvent
+    public static void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {BLOCKS.getEntries().forEach(block -> {event.accept(block.get());});}
+        if (event.getTabKey().equals(GE_TAB_KEY)) {BLOCKS.getEntries().forEach(block -> event.accept(block.get()));}
 }
-
     public static final RegistrarBlockSet SLIGHTLY_MOSSY_COBBLESTONE =
-            new RegistrarBlockSet(
-                    "slightly_mossy_cobblestone",
-                    BlockBehaviorHelper.stone(2, 6),
-                    BlockSetType.IRON,
-                    WoodType.ACACIA
+            blockSet("slightly_mossy_cobblestone",
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.STONE)
+                            .strength(1.5f, 6.0f)
+                            .sound(SoundType.STONE)
             );
-    public static final RegistrarBlockSet OVERLY_MOSSY_COBBLESTONE =
-            new RegistrarBlockSet(
-                    "overly_mossy_cobblestone",
-                    BlockBehaviorHelper.stone(2, 6),
-                    BlockSetType.IRON,
-                    WoodType.ACACIA
-            );
+
 }
 

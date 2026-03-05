@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_post",
-  "textures": {
-    "wall": "ge:block/slightly_mossy_deepslate"
-  }
-}

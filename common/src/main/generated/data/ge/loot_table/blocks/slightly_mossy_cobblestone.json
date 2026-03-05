@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ge:slightly_mossy_cobblestone"
+          "name": "minecraft:air"
         }
       ],
       "rolls": 1.0

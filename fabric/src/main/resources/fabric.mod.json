@@ -8,7 +8,7 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
+        "homepage": "I dont really have one lol"
         "sources": "https://github.com/FabricMC/fabric-example-mod"
     },
     "license": "${license}",
@@ -19,7 +19,7 @@
             "net.thenu.ge.GE"
         ],
         "fabric-datagen": [
-            "net.thenu.datagen.datagen"
+            "net.thenu.datagen.MainDatagen.datagen"
         ]
     },
     "mixins": [

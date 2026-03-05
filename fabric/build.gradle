@@ -7,20 +7,18 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+
+    modImplementation "com.terraformersmc:modmenu:11.0.3"
+
 }
-tasks.register("generateData", JavaExec) {
-    group = "fabric"
-    mainClass.set("net.thenu.ge.datagen.datagen")
-    classpath = sourceSets.main.runtimeClasspath
+repositories {
+    maven { url "https://maven.terraformersmc.com/releases" }
 }
-tasks.named("generateData") {
-    doFirst {
-        // Path where generated data will be placed
-        systemProperty("fabric-api.datagen.output-dir", file("$buildDir/generated"))
-        // Your mod ID
-        systemProperty("fabric-api.datagen.modid", "ge")
-    }
+tasks.named("processResources") {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
+
 sourceSets {
     main {
         resources {
@@ -30,7 +28,7 @@ sourceSets {
 }
 fabricApi {
     configureDataGeneration {
-
+        outputDirectory = project(':common').file("src/main/generated")
     }
 }
 loom {
@@ -53,7 +51,6 @@ loom {
             setConfigName('Fabric Server')
             ideConfigGenerated(true)
             runDir('runs/server')
-            property "fabric-api.datagen", "true"
         }
     }
 }

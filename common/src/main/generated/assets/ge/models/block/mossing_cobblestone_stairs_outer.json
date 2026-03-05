@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "ge:block/mossing_cobblestone",
-    "side": "ge:block/mossing_cobblestone",
-    "top": "ge:block/mossing_cobblestone"
-  }
-}

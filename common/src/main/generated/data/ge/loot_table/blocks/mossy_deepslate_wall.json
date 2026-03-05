@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ge:mossy_deepslate_wall"
+          "name": "minecraft:air"
         }
       ],
       "rolls": 1.0

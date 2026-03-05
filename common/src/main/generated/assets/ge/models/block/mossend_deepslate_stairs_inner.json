@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "ge:block/mossend_deepslate",
-    "side": "ge:block/mossend_deepslate",
-    "top": "ge:block/mossend_deepslate"
-  }
-}

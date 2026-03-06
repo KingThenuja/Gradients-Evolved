@@ -1,8 +1,11 @@
 package net.thenu.utils.BlockFamily;
 
 import net.minecraft.block.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
+import net.thenu.utils.Registries.ItemGroupRegistry;
 
 public class BlockFamilyBuilder {
 
@@ -15,67 +18,31 @@ public class BlockFamilyBuilder {
     }
 
     public BlockFamily build() {
-
-
-
         String name = definition.name();
         AbstractBlock.Settings baseSettings = definition.settings();
 
-        // Base block
-        Block base = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name),
-                new Block(baseSettings)
-        );
+        Block base      = registerBlock(modId, name, new Block(baseSettings));
+        Block stairs    = registerBlock(modId, name + "_stairs", new StairsBlock(base.getDefaultState(), AbstractBlock.Settings.copy(base)));
+        Block slab      = registerBlock(modId, name + "_slab", new SlabBlock(AbstractBlock.Settings.copy(base)));
+        Block fence     = registerBlock(modId, name + "_fence", new FenceBlock(AbstractBlock.Settings.copy(base)));
+        Block fenceGate = registerBlock(modId, name + "_fence_gate", new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(base)));
+        Block wall      = registerBlock(modId, name + "_wall", new WallBlock(AbstractBlock.Settings.copy(base)));
 
-        // Stair
-        Block stairs = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name + "_stairs"),
-                new StairsBlock(
-                        base.getDefaultState(),
-                        AbstractBlock.Settings.copy(base)
-                )
-        );
+        return new BlockFamily(base, slab, stairs, wall, fence, fenceGate);
+    }
 
-        // Slab
-        Block slab = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name + "_slab"),
-                new SlabBlock(AbstractBlock.Settings.copy(base))
-        );
+    private Block registerBlock(String modId, String name, Block block) {
+        Identifier id = Identifier.of(modId, name);
 
-        // Fence
-        Block fence = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name + "_fence"),
-                new FenceBlock(AbstractBlock.Settings.copy(base))
-        );
+        Registry.register(Registries.BLOCK, id, block);
 
-        // Fence Gate
-        Block fenceGate = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name + "_fence_gate"),
-                new FenceGateBlock(
-                        WoodType.OAK,
-                        AbstractBlock.Settings.copy(base)
-                )
+        BlockItem item = Registry.register(
+                Registries.ITEM,
+                id,
+                new BlockItem(block, new Item.Settings())
         );
+        ItemGroupRegistry.add(item); // <-- this was missing
 
-        // Wall
-        Block wall = Registry.register(
-                Registries.BLOCK,
-                Identifier.of(modId, name + "_wall"),
-                new WallBlock(AbstractBlock.Settings.copy(base))
-        );
-
-        return new BlockFamily(
-                base,
-                slab,
-                stairs,
-                wall,
-                fence,
-                fenceGate
-        );
+        return block;
     }
 }

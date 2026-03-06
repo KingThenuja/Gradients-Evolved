@@ -1,6 +1,8 @@
 package net.thenu.ge;
 
 import net.fabricmc.api.ModInitializer;
+import net.thenu.ge.block.GEBlocks;
+import net.thenu.ge.block.customBlock.AmethystBlocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +15,8 @@ public class GE implements ModInitializer {
         Constants.LOG.info("Hello Fabric world!");
         CommonClass.init();
 
-        ItemGroup.registerItemGroup();
+        AmethystBlocks.registerAmethystBlocks();
         GEBlocks.registerModBlocks();
+        ItemGroup.registerItemGroup();
     }
 }

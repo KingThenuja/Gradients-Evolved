@@ -6,6 +6,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.thenu.ge.block.GEBlocks;
 import net.thenu.utils.Registries.ItemGroupRegistry;
 
 public class ItemGroup {public static void registerItemGroup() {GE.LOGGER.info("Registering Item Group for " + GE.MOD_ID);}

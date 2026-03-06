@@ -28,7 +28,7 @@ sourceSets {
 }
 fabricApi {
     configureDataGeneration {
-        outputDirectory = project(':common').file("src/main/generated")
+        outputDirectory = project(':common').file('src/main/generated')
     }
 }
 loom {

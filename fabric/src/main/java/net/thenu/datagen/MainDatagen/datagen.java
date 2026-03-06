@@ -9,7 +9,7 @@ public class datagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(Models::new);
+        pack.addProvider(BlockModels::new);
         pack.addProvider(Recipe::new);
         pack.addProvider(Tag::new);
         pack.addProvider(BlockDrop::new);

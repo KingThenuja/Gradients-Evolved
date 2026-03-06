@@ -1,10 +1,13 @@
-package net.thenu.ge;
+package net.thenu.ge.block;
 
 
 import net.minecraft.block.*;
+import net.thenu.ge.GE;
 import net.thenu.utils.BlockFamily.BlockFamily;
 import net.thenu.utils.BlockFamily.BlockFamilyBuilder;
 import net.thenu.utils.BlockFamily.BlockFamilyDefinition;
+
+import java.util.List;
 
 public class GEBlocks {private static final String MODID = GE.MOD_ID;public static void registerModBlocks() {GE.LOGGER.info("Registering Mod GEBlocks for " + GE.MOD_ID);}
 
@@ -45,7 +48,7 @@ public class GEBlocks {private static final String MODID = GE.MOD_ID;public stat
     public static final BlockFamily REDSTONE = new BlockFamilyBuilder(MODID, new BlockFamilyDefinition(
     "redstone", AbstractBlock.Settings.copy(net.minecraft.block.Blocks.REDSTONE_BLOCK))).build();
     public static final BlockFamily LAPIS = new BlockFamilyBuilder(MODID, new BlockFamilyDefinition(
-    "lapis", AbstractBlock.Settings.copy(net.minecraft.block.Blocks.LAPIS_BLOCK))).build();
+    "lapis_lazuli", AbstractBlock.Settings.copy(net.minecraft.block.Blocks.LAPIS_BLOCK))).build();
     public static final BlockFamily NETHERITE = new BlockFamilyBuilder(MODID, new BlockFamilyDefinition(
     "netherite", AbstractBlock.Settings.copy(net.minecraft.block.Blocks.NETHERITE_BLOCK))).build();
     public static final BlockFamily GLOWSTONE = new BlockFamilyBuilder(MODID, new BlockFamilyDefinition(

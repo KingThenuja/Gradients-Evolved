@@ -35,18 +35,6 @@ public class BlockFamily {
     public List<Block> getAll() {
         return List.of(base, slab, stairs, wall, fence, fenceGate);
     }
-    public static BlockFamily create(String name, AbstractBlock.Settings settings) {
-
-        Block base = register(name, new Block(settings));
-
-        Block slab = register(name + "_slab", new SlabBlock(settings));
-        Block stairs = register(name + "_stairs",
-                new StairsBlock(base.getDefaultState(), settings));
-        Block wall = register(name + "_wall", new WallBlock(settings));
-        Block fence = register(name + "_fence", new FenceBlock(settings));
-        Block fenceGate = register(name + "_fence_gate", new FenceGateBlock(WoodType.ACACIA, settings));
-        return new BlockFamily(base, slab, stairs, wall, fence, fenceGate);
-    }
     public Block base() { return base; }
     public Block slab() { return slab; }
     public Block stairs() { return stairs; }

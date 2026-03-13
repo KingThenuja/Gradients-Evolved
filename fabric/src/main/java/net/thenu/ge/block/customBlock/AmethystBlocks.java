@@ -1,12 +1,8 @@
 package net.thenu.ge.block.customBlock;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.MapColor;
+import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.thenu.ge.GE;
-import net.thenu.ge.block.customBlockFiles.RedstoneLampBlock;
 import net.thenu.utils.BlockFamily.BlockFamily;
 import net.thenu.utils.BlockFamily.BlockFamilyBuilder;
 import net.thenu.utils.BlockFamily.BlockFamilyDefinition;

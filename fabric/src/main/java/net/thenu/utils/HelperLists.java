@@ -19,5 +19,4 @@ public class HelperLists {
     public static List<BlockFamily> getAllAmethystBlocks() {return List.of(AmethystBlocks.AMETHYST_BRICKS, AmethystBlocks.SMOOTH_AMETHYST, AmethystBlocks.SMOOTH_AMETHYST_BRICKS, AmethystBlocks.AMETHYST_PILLARS, AmethystBlocks.CRACKED_AMETHYST_BRICKS, AmethystBlocks.AMETHYST_TILES, AmethystBlocks.CHISELED_AMETHYST_BLOCK);}
 
 
-
 }

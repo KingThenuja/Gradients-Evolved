@@ -1,45 +1,49 @@
 package net.thenu.ge.block;
 
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.thenu.utils.RegistrarBlockSet;
-
-import static net.thenu.utils.Registering.*;
-import static net.thenu.utils.RegistrarBlockSet.blockSet;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.thenu.ge.GE;
+import net.thenu.ge.block.customBlock.AmethystBlocks;
+import net.thenu.utils.BlockFamily.BlockFamily;
+import net.thenu.utils.BlockFamily.BlockFamilyBuilder;
+import net.thenu.utils.BlockFamily.BlockFamilyDefinition;
 
 public class GEBlocks {
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-        ITEMS.register(eventBus);
-        TABS.register(eventBus);
 
-        eventBus.addListener(GEBlocks::addToCreativeTab);}
+    private static final String MODID = GE.MOD_ID;
 
-    @SubscribeEvent
-    public static void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<Item>  ITEMS  = DeferredRegister.create(ForgeRegistries.ITEMS,  MODID);
+    public static void registerModBlocks() {
+        AmethystBlocks.registerAmethystBlocks();}
 
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {BLOCKS.getEntries().forEach(block -> {event.accept(block.get());});}
-        if (event.getTabKey().equals(GE_TAB_KEY)) {BLOCKS.getEntries().forEach(block -> event.accept(block.get()));}
+    private static BlockFamilyBuilder builder(String name, BlockBehaviour.Properties props) {
+        return new BlockFamilyBuilder(MODID, new BlockFamilyDefinition(name, props), BLOCKS, ITEMS);
+    }
+
+    public static final BlockFamily SLIGHTLY_MOSSY_COBBLESTONE    = builder("slightly_mossy_cobblestone",    BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)).build();
+    public static final BlockFamily OVERLY_MOSSY_COBBLESTONE      = builder("overly_mossy_cobblestone",      BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)).build();
+    public static final BlockFamily MOSSEND_COBBLESTONE           = builder("mossend_cobblestone",           BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)).build();
+    public static final BlockFamily MOSSING_COBBLESTONE           = builder("mossing_cobblestone",           BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)).build();
+    public static final BlockFamily FULLY_COVERED_MOSSY_COBBLESTONE = builder("fully_covered_mossy_cobblestone", BlockBehaviour.Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE)).build();
+
+    public static final BlockFamily SLIGHTLY_MOSSY_DEEPSLATE      = builder("slightly_mossy_deepslate",      BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+    public static final BlockFamily MOSSY_DEEPSLATE               = builder("mossy_deepslate",               BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+    public static final BlockFamily OVERLY_MOSSY_DEEPSLATE        = builder("overly_mossy_deepslate",        BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+    public static final BlockFamily MOSSEND_DEEPSLATE             = builder("mossend_deepslate",             BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+    public static final BlockFamily MOSSING_DEEPSLATE             = builder("mossing_deepslate",             BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+    public static final BlockFamily FULLY_COVERED_MOSSY_DEEPSLATE = builder("fully_covered_mossy_deepslate", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)).build();
+
+    public static final BlockFamily DIAMOND   = builder("diamond",       BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)).build();
+    public static final BlockFamily IRON      = builder("iron",          BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)).build();
+    public static final BlockFamily GOLD      = builder("gold",          BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)).build();
+    public static final BlockFamily EMERALD   = builder("emerald",       BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)).build();
+    public static final BlockFamily REDSTONE  = builder("redstone",      BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)).build();
+    public static final BlockFamily LAPIS     = builder("lapis_lazuli",  BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_BLOCK)).build();
+    public static final BlockFamily NETHERITE = builder("netherite",     BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)).build();
+    public static final BlockFamily GLOWSTONE = builder("glowstone",     BlockBehaviour.Properties.ofFullCopy(Blocks.GLOWSTONE).lightLevel(state -> 15)).build();
 }
-    public static final RegistrarBlockSet SLIGHTLY_MOSSY_COBBLESTONE =
-            blockSet("slightly_mossy_cobblestone",
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.STONE)
-                            .strength(1.5f, 6.0f)
-                            .sound(SoundType.STONE)
-            );
-    public static final RegistrarBlockSet OVERLY_MOSSY_COBBLESTONE =
-            blockSet("overly_mossy_cobblestone",
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.STONE)
-                            .strength(1.5f, 6.0f)
-                            .sound(SoundType.STONE)
-            );
-
-}
-

@@ -10,7 +10,6 @@ public class datagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(BlockModels::new);
-        pack.addProvider(RawModels::new);
         pack.addProvider(Recipe::new);
         pack.addProvider(Tag::new);
         pack.addProvider(BlockDrop::new);

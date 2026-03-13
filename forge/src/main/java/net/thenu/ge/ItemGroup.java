@@ -1,36 +1,31 @@
 package net.thenu.ge;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.thenu.utils.Registering;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.thenu.ge.block.GEBlocks;
-import net.thenu.utils.RegistrarBlockSet;
+import net.thenu.utils.Registries.ItemGroupRegistry;
 
-import java.util.List;
-
-import static net.thenu.utils.Registering.TABS;
-
-@Mod.EventBusSubscriber(modid = GE.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ItemGroup {
 
+    public static final DeferredRegister<CreativeModeTab> TABS =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, GE.MOD_ID);
 
-    public static final RegistryObject<CreativeModeTab> GE_TAB =
-            TABS.register("ge_tab", () ->
-                    CreativeModeTab.builder()
-                            .title(Component.literal("Gradient Evolved's Block Tab"))
-                            .icon(() -> new ItemStack(GEBlocks.SLIGHTLY_MOSSY_COBBLESTONE.block.get()))
-                            .displayItems((parameters, output) -> {
-                                Registering.BLOCKS.getEntries().forEach(block -> {
-                                    output.accept(block.get());
-                                });
-                            })
-                            .build()
-            );
+    public static final RegistryObject<CreativeModeTab> GRADIENTS_EVOLVED_BLOCKS_TAB = TABS.register(
+            "ge_blocks_tab",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(GEBlocks.SLIGHTLY_MOSSY_COBBLESTONE.base()))
+                    .title(Component.translatable("itemgroup.ge.ge_blocks_tab"))
+                    .displayItems((params, output) -> {
+                        ItemGroupRegistry.getItems().forEach(output::accept);
+                    })
+                    .build()
+    );
+
+    public static void registerItemGroup() {
+    }
 }

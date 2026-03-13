@@ -22,6 +22,9 @@ sourceSets {
         }
     }
 }
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
 minecraft {
     mappings channel: 'official', version: minecraft_version
 

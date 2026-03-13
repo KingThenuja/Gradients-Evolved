@@ -35,6 +35,7 @@ public class BlockFamily {
     public List<Block> getAll() {
         return List.of(base, slab, stairs, wall, fence, fenceGate);
     }
+
     public Block base() { return base; }
     public Block slab() { return slab; }
     public Block stairs() { return stairs; }

@@ -15,7 +15,6 @@ public class GE implements ModInitializer {
         Constants.LOG.info("Hello Fabric world!");
         CommonClass.init();
 
-        AmethystBlocks.registerAmethystBlocks();
         GEBlocks.registerModBlocks();
         ItemGroup.registerItemGroup();
     }

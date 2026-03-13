@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
-import net.thenu.ge.block.GEBlocks;
 import net.thenu.ge.block.customBlock.AmethystBlocks;
 import net.thenu.utils.BlockFamily.BlockFamily;
 import net.thenu.utils.HelperLists;
@@ -26,43 +25,15 @@ public class Tag extends FabricTagProvider.BlockTagProvider {
         addAllFromFamilies(pickaxe, HelperLists.getAllMossyDeepslateBlocks());
         addAllFromFamilies(pickaxe, HelperLists.getAllDiamondNetheriteEmeraldGlowstoneIronGoldRedstoneLapisBlocks());
         addAllFromFamilies(pickaxe, HelperLists.getAllAmethystBlocks());
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(GEBlocks.ARCANE_CRYSTAL_BLOCK)
-                .add(GEBlocks.RUNESTONE_BRICKS)
-                .add(GEBlocks.STARDUST_TILES)
-                .add(GEBlocks.RIVETED_IRON_PLATE)
-                .add(GEBlocks.COPPER_PIPE_BUNDLE)
-                .add(GEBlocks.TARNISHED_BRASS_BLOCK)
-                .add(GEBlocks.MOSSY_PETAL_STONE)
-                .add(GEBlocks.OVERGROWN_RUINS)
-                .add(GEBlocks.SOUL_OBSIDIAN_BRICKS)
-                .add(GEBlocks.BONE_CARVED_STONE)
-                .add(GEBlocks.VOID_BLACKSTONE_TILES)
-                .add(GEBlocks.NEON_GRID_PANEL)
-                .add(GEBlocks.HOLO_GLASS)
-                .add(GEBlocks.DURASTEEL_PLATING)
-                .add(AmethystBlocks.CROSSED_AMETHYST_LAMP);
 
 
         // --- NEEDS STONE TOOL ---
-        // Mossy cobblestone/deepslate variants use stone tier
         FabricTagBuilder stoneTool = getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL);
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(AmethystBlocks.CIRCULAR_AMETHYST_LAMP);
         addAllFromFamilies(stoneTool, HelperLists.getAllMossyCobblestoneBlocks());
         addAllFromFamilies(stoneTool, HelperLists.getAllMossyDeepslateBlocks());
         addAllFromFamilies(stoneTool, HelperLists.getAllAmethystBlocks());
-        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(AmethystBlocks.CIRCULAR_AMETHYST_LAMP);
-        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(GEBlocks.ARCANE_CRYSTAL_BLOCK)
-                .add(GEBlocks.RUNESTONE_BRICKS)
-                .add(GEBlocks.STARDUST_TILES)
-                .add(GEBlocks.COPPER_PIPE_BUNDLE)
-                .add(GEBlocks.TARNISHED_BRASS_BLOCK)
-                .add(GEBlocks.MOSSY_PETAL_STONE)
-                .add(GEBlocks.OVERGROWN_RUINS)
-                .add(GEBlocks.BONE_CARVED_STONE)
-                .add(GEBlocks.PETRIFIED_LOG)
-                .add(GEBlocks.NEON_GRID_PANEL)
-                .add(GEBlocks.HOLO_GLASS);
+
 
         // --- WALLS ---
         FabricTagBuilder walls = getOrCreateTagBuilder(BlockTags.WALLS);
@@ -87,18 +58,12 @@ public class Tag extends FabricTagProvider.BlockTagProvider {
         addFenceGatesFromFamilies(fenceGates, HelperLists.getAllDiamondNetheriteEmeraldGlowstoneIronGoldRedstoneLapisBlocks());
         addFenceGatesFromFamilies(fenceGates, HelperLists.getAllAmethystBlocks());
 
+        // --- NEEDS Iron TOOL ---
+        FabricTagBuilder needIron = getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL);
 
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .add(GEBlocks.PETRIFIED_LOG);           // petrified wood
+        // --- NEEDS Diamond TOOL ---
+        FabricTagBuilder needDiamond = getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL);
 
-
-        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(GEBlocks.RIVETED_IRON_PLATE)
-                .add(GEBlocks.VOID_BLACKSTONE_TILES)
-                .add(GEBlocks.DURASTEEL_PLATING);
-
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(GEBlocks.SOUL_OBSIDIAN_BRICKS);
 
 
     }

@@ -47,10 +47,7 @@ public class Recipe extends FabricRecipeProvider {
         }
 
         // Amethyst
-        for (BlockFamily family : HelperLists.getAllAmethystBlocks()) {
-            offerFamilyRecipes(exporter, family, family.base());
-            offerStonecuttingRecipe(exporter, RecipeCategory.MISC, family.base(), Blocks.AMETHYST_BLOCK, 1);
-            offerFamilyStonecutting(exporter, family, family.base());}
+        for (BlockFamily family : HelperLists.getAllAmethystBlocks()) {offerFamilyRecipes(exporter, family, family.base());offerStonecuttingRecipe(exporter, RecipeCategory.MISC, family.base(), Blocks.AMETHYST_BLOCK, 1);offerFamilyStonecutting(exporter, family, family.base());}
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, AmethystBlocks.CROSSED_AMETHYST_LAMP).pattern(" A ").pattern("AGA").pattern(" A ").input('A', Items.AMETHYST_SHARD).input('G', Items.GLOWSTONE).criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, AmethystBlocks.CIRCULAR_AMETHYST_LAMP).pattern("AAA").pattern("AGA").pattern("AAA").input('A', Items.AMETHYST_SHARD).input('G', Items.GLOWSTONE).criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD)).offerTo(exporter);
 

@@ -1,32 +1,43 @@
-# MultiLoader Template
+# GradientsEvolved — Multi-Loader / Multi-Version
 
-This project provides a Gradle project template that can compile Minecraft mods for multiple modloaders using a common project for the sources. This project does not require any third party libraries or dependencies. If you have any questions or want to discuss the project, please join our [Discord](https://discord.myceliummod.network).
+**Mod ID:** `ge` | **Author:** King_Thenuja | **Group:** `net.thenu.ge`
 
-## Getting Started
+> Quilt is intentionally excluded — Quilt runs Fabric mods natively, so
+> your Fabric jar works on both Fabric and Quilt out of the box.
 
-### IntelliJ IDEA
-This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up the modloaders independently and should be very familiar to anyone who has worked with their MDKs.
+## Supported Targets
 
-1. Clone or download this repository to your computer.
-2. Configure the project by setting the properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`, this should match the folder name of your project, or else IDEA may complain.
-3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README.md file and the gradlew executable.
-4. If your default JVM/JDK is not Java 21 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM` and changing the value to a valid Java 21 JVM. You will also need to set the Project SDK to Java 21. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
-5. Open your Run/Debug Configurations. Under the `Application` category there should now be options to run Fabric and NeoForge projects. Select one of the client options and try to run it.
-6. Assuming you were able to run the game in step 5 your workspace should now be set up.
+| MC Version | Fabric | NeoForge        | Forge |
+|------------|--------|-----------------|-------|
+| 1.21.1     | ✅     | ✅ stable       | ✅    |
+| 1.21.3     | ✅     | ✅ beta         |       |
+| 1.21.4     | ✅     | ✅ stable       |       |
+| 1.21.5     | ✅     | ✅ stable       |       |
+| 1.21.6     | ✅     | ✅ stable       |       |
+| 1.21.7     | ✅     | ✅ beta         |       |
+| 1.21.8     | ✅     | ✅ stable       |       |
+| 1.21.9     | ✅     | ✅ beta         |       |
+| 1.21.10    | ✅     | ✅ beta         |       |
+| 1.21.11    | ✅     | ✅ beta         |       |
 
-### Eclipse
-While it is possible to use this template in Eclipse it is not recommended. During the development of this template multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. While we continue to work with these tools to report and resolve issues support for projects like these are not there yet. For now Eclipse is considered unsupported by this project. The development cycle for build tools is notoriously slow so there are no ETAs available.
+## ⚠️ Verify These Before First Build
 
-## Development Guide
-When using this template the majority of your mod should be developed in the `common` project. The `common` project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The `common` project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the `fabric` or `neoforge` projects.
+The Yarn, Fabric API, and beta NeoForge versions in `gradle.properties` may
+need updating — check:
+- https://fabricmc.net/develop/          (Yarn + Fabric API)
+- https://maven.neoforged.net/releases/net/neoforged/neoforge/  (NeoForge)
 
-Loader specific projects such as the `fabric` and `neoforge` project are used to load the `common` project into the game. These projects also define code that is specific to that loader. Loader specific projects can access all the code in the `common` project. It is important to remember that the `common` project can not access code from loader specific projects.
+Beta NeoForge versions follow the pattern `21.X.Y-beta` and resolve fine
+through NeoGradle — no special config needed beyond the version string.
 
-## Removing Platforms and Loaders
-While this template has support for many modloaders, new loaders may appear in the future, and existing loaders may become less relevant.
+## Build Commands
 
-Removing loader specific projects is as easy as deleting the folder, and removing the `include("projectname")` line from the `settings.gradle` file.
-For example if you wanted to remove support for `forge` you would follow the following steps:
-
-1. Delete the subproject folder. For example, delete `MultiLoader-Template/forge`.
-2. Remove the project from `settings.gradle`. For example, remove `include("forge")`. 
+```bash
+./gradlew build                                       # everything
+./gradlew :versions:1.21.6-fabric:build
+./gradlew :versions:1.21.6-neoforge:build
+./gradlew :versions:1.21.1-forge:build
+./gradlew :versions:1.21.6-fabric:runClient
+./gradlew :versions:1.21.6-neoforge:runClient
+```
+# gradients-evolved-multi-version
